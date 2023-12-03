@@ -1,2 +1,3 @@
-
-export type BannerProps = {};
+export type BannerProps = {
+  className?: string;
+};
