@@ -48,7 +48,7 @@ fs.writeFileSync(
   testCode
 );
 
-fs.writeFileSync(path.join(componentDir, "util.ts"), "");
+fs.writeFileSync(path.join(componentDir, "util.ts"), "export {}");
 
 const typesCode = `
 export type ${componentName}Props = {};
