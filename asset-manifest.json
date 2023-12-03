@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/stackline-takehome/static/css/main.9f23910d.css",
+    "main.js": "/stackline-takehome/static/js/main.3262057a.js",
+    "static/js/787.e487b82f.chunk.js": "/stackline-takehome/static/js/787.e487b82f.chunk.js",
+    "index.html": "/stackline-takehome/index.html",
+    "main.9f23910d.css.map": "/stackline-takehome/static/css/main.9f23910d.css.map",
+    "main.3262057a.js.map": "/stackline-takehome/static/js/main.3262057a.js.map",
+    "787.e487b82f.chunk.js.map": "/stackline-takehome/static/js/787.e487b82f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9f23910d.css",
+    "static/js/main.3262057a.js"
+  ]
+}
