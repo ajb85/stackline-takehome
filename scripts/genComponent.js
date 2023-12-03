@@ -38,9 +38,11 @@ fs.writeFileSync(
 const testCode = `
 import { render, screen } from "@testing-library/react";
 import { ${componentName} } from "./${componentName}";
+import { ${componentName}Props } from "./types";
 
 it("renders", () => {
-  // TODO: test here
+  const props: ${componentName}Props = {};
+  render(<${componentName} {...props} />);
 });
 `;
 
