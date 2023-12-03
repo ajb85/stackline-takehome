@@ -36,6 +36,7 @@ fs.writeFileSync(
 );
 
 const testCode = `
+import { render, screen } from "@testing-library/react";
 import { ${componentName} } from "./${componentName}";
 
 it("renders", () => {
