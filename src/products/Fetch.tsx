@@ -25,7 +25,7 @@ export function FetchCurrentProduct(props: FetchProductProps) {
       // forcing the URL to search for the one product I do have
       window.location.search = "product_id=B007TIE0GQ";
     }
-  }, [product_id, products]);
+  }, [product_id, products, dispatch]);
 
   return props.children;
 }
