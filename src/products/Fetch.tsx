@@ -17,7 +17,6 @@ export function FetchCurrentProduct(props: FetchProductProps) {
       !products.error &&
       !products.isLoading
     ) {
-      console.log("FETCH", product_id);
       dispatch(fetchProductById(product_id));
     } else if (!product_id) {
       // Hard-coded solution since I only have one page and no routing.
