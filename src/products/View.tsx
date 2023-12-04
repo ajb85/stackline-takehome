@@ -3,6 +3,7 @@ import { PanelGroup } from "../components/Panel/Group";
 import { Panel } from "../components/Panel/Panel";
 import { ProductShowcase } from "../components/ProductShowcase/ProductShowcase";
 import { getSearchParams } from "../util/getSearchParams";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useProducts } from "./reducer";
 import { Table } from "../components/Table/Table";
 import {
@@ -17,11 +18,20 @@ export function ProductView() {
 
   if (!product_id || products.isLoading) {
     // No product_id should only happen on mount with how I have the app written right now
-    return <div>Loading</div>;
+    return (
+      <div className="bg-slate-500 w-screen h-screen flex flex-col items-center justify-center fixed top-0 left-0">
+        <AiOutlineLoading3Quarters className="animate-spin" />
+        <span>Loading</span>
+      </div>
+    );
   }
 
   if (products.error) {
-    return <div>{products.error}</div>;
+    return (
+      <div className="w-screen h-screen flex flex-col items-center justify-center fixed top-0 left-0">
+        {products.error}
+      </div>
+    );
   }
 
   const product = products.data[product_id];
@@ -91,7 +101,7 @@ export function ProductView() {
               page: 0,
               pageSize: 10,
             },
-            sizeOptions: [10, 20, 30],
+            sizeOptions: [10, 30, 50],
           }}
         />
       </Panel>
