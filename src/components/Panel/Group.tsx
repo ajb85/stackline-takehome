@@ -6,14 +6,14 @@ export function PanelGroup(props: PanelGroupProps) {
   return (
     <main
       className={combineClassNames(
-        "flex flex-col md:flex-row gap-x-4 gap-y-8 mx-auto",
+        "flex flex-col md:flex-row gap-x-4 gap-y-8 mx-auto h-full w-full flex-grow p-2",
         appMaxWidth,
         screenPadding,
         props.className
       )}
     >
       <div
-        className={combineClassNames("w-full md:w-1/5", props.sidebarClassName)}
+        className={combineClassNames("w-full md:w-1/3", props.sidebarClassName)}
       >
         {props.sidebar}
       </div>
