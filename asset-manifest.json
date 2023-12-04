@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/stackline-takehome/static/css/main.125afe9e.css",
-    "main.js": "/stackline-takehome/static/js/main.8647cdaa.js",
+    "main.css": "/stackline-takehome/static/css/main.6d998fa7.css",
+    "main.js": "/stackline-takehome/static/js/main.31261693.js",
     "static/js/787.e487b82f.chunk.js": "/stackline-takehome/static/js/787.e487b82f.chunk.js",
     "static/media/stackline_logo.svg": "/stackline-takehome/static/media/stackline_logo.5935081bd899ecfe02395699e768f84e.svg",
     "index.html": "/stackline-takehome/index.html",
-    "main.125afe9e.css.map": "/stackline-takehome/static/css/main.125afe9e.css.map",
-    "main.8647cdaa.js.map": "/stackline-takehome/static/js/main.8647cdaa.js.map",
+    "main.6d998fa7.css.map": "/stackline-takehome/static/css/main.6d998fa7.css.map",
+    "main.31261693.js.map": "/stackline-takehome/static/js/main.31261693.js.map",
     "787.e487b82f.chunk.js.map": "/stackline-takehome/static/js/787.e487b82f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.125afe9e.css",
-    "static/js/main.8647cdaa.js"
+    "static/css/main.6d998fa7.css",
+    "static/js/main.31261693.js"
   ]
 }
