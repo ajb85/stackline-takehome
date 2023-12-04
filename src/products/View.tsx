@@ -4,6 +4,12 @@ import { Panel } from "../components/Panel/Panel";
 import { ProductShowcase } from "../components/ProductShowcase/ProductShowcase";
 import { getSearchParams } from "../util/getSearchParams";
 import { useProducts } from "./reducer";
+import { Table } from "../components/Table/Table";
+import {
+  getFormatDate,
+  getFormatDollar,
+  getFormatNumberWithCommas,
+} from "../components/Table/util";
 
 export function ProductView() {
   const { product_id } = getSearchParams("product_id");
@@ -19,6 +25,11 @@ export function ProductView() {
   }
 
   const product = products.data[product_id];
+  if (!product) {
+    return null;
+  }
+
+  const formatDollar = getFormatDollar();
 
   return (
     <PanelGroup
@@ -28,15 +39,61 @@ export function ProductView() {
         </Panel>
       }
     >
-      <Panel className="h-full">
+      <Panel className="h-fit">
         <ProductSalesChart
           title="Retail Sales"
           product={product}
           plotKeys={["retailSales", "wholesaleSales"]}
         />
       </Panel>
-      <Panel className="h-full overflow-auto">
-        <p>Right Bottom</p>
+      <Panel className="h-fit">
+        <Table
+          rows={product.sales}
+          columns={[
+            {
+              field: "weekEnding",
+              label: "Week Ending",
+              width: 100,
+              sortable: true,
+              formatCell: getFormatDate(),
+            },
+            {
+              field: "retailSales",
+              label: "Retail Sales",
+              width: 100,
+              sortable: true,
+              formatCell: formatDollar,
+            },
+            {
+              field: "wholesaleSales",
+              label: "Wholesale Sales",
+              width: 100,
+              sortable: true,
+              formatCell: formatDollar,
+            },
+            {
+              field: "unitsSold",
+              label: "Units Sold",
+              width: 100,
+              sortable: true,
+              formatCell: getFormatNumberWithCommas(),
+            },
+            {
+              field: "retailerMargin",
+              label: "Retailer Margin",
+              width: 100,
+              sortable: true,
+              formatCell: formatDollar,
+            },
+          ]}
+          pagination={{
+            initialState: {
+              page: 0,
+              pageSize: 10,
+            },
+            sizeOptions: [10, 20, 30],
+          }}
+        />
       </Panel>
     </PanelGroup>
   );
