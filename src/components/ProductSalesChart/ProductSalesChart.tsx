@@ -45,7 +45,7 @@ export function ProductSalesChart(props: ProductSalesChartProps) {
         borderColor: lineColors[i % lineColors.length],
         ...defaultDatasetOptions,
       })),
-    []
+    [props.plotKeys, salesValues]
   );
 
   useEffect(() => {
