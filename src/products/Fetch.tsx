@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { getSearchParams } from "../util/getSearchParams";
 import { FetchProductProps } from "./types";
 import { useProducts, fetchProductById } from "./reducer";
