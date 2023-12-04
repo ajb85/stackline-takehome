@@ -8,7 +8,16 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "cSpell.words": ["falsey", "predeploy", "Stackline", "tailwindcss"],
+  "cSpell.words": [
+    "falsey",
+    "Nutri",
+    "Nutribullet",
+    "predeploy",
+    "reduxjs",
+    "Stackline",
+    "superfoods",
+    "tailwindcss"
+  ],
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
