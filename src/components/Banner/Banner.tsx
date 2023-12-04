@@ -6,10 +6,10 @@ import { appMaxWidth, screenPadding } from "../../styling/sizing";
 
 export function Banner(props: BannerProps) {
   return (
-    <div className="bg-banner-blue">
+    <div className="bg-banner-blue mb-10">
       <header
         className={combineClassNames(
-          "p-4 mb-10 mx-auto",
+          "p-4 mx-auto",
           appMaxWidth,
           screenPadding,
           props.className
