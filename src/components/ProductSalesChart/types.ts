@@ -21,6 +21,7 @@ export type LineChartType =
 
 export type SalesValues = {
   monthLabels: string[];
+  monthCount: number;
   min: number | null;
   max: number | null;
 } & { [key in ChartPlotKey]: number[] };

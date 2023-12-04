@@ -14,25 +14,39 @@ export function ProductSalesChart(props: ProductSalesChartProps) {
 
   const salesValues = useMemo(
     () =>
-      props.product?.sales.reduce((acc, item) => {
-        acc.monthLabels.push(formatDate(item.weekEnding));
-        props.plotKeys.forEach((key) => {
-          if (!acc[key]) {
-            acc[key] = [];
+      props.product?.sales.reduce(
+        (acc, item) => {
+          const monthLabel = formatDate(item.weekEnding);
+          if (monthLabel !== acc.monthLabels.at(-1)) {
+            acc.monthCount++;
           }
 
-          acc[key].push(item[key]);
-          if (acc.min === null || acc.min > item[key]) {
-            acc.min = item[key];
-          }
+          acc.monthLabels.push(monthLabel);
 
-          if (acc.max === null || acc.max < item[key]) {
-            acc.max = item[key];
-          }
-        });
+          props.plotKeys.forEach((key) => {
+            if (!acc[key]) {
+              acc[key] = [];
+            }
 
-        return acc;
-      }, initialSalesValue as SalesValues) ?? initialSalesValue,
+            acc[key].push(item[key]);
+            if (acc.min === null || acc.min > item[key]) {
+              acc.min = item[key];
+            }
+
+            if (acc.max === null || acc.max < item[key]) {
+              acc.max = item[key];
+            }
+          });
+
+          return acc;
+        },
+        {
+          monthLabels: [] as String[],
+          monthCount: 0,
+          min: null,
+          max: null,
+        } as SalesValues
+      ) ?? initialSalesValue,
     [props.product?.sales, props.plotKeys]
   );
 

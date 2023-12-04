@@ -13,6 +13,7 @@ export const getChartOptions = (
   const min = salesValues.min ?? 0;
   const max = salesValues.max ?? 0;
   const difference = max - min;
+
   return {
     plugins: {
       legend: {
@@ -22,7 +23,7 @@ export const getChartOptions = (
     scales: {
       x: {
         ticks: {
-          maxTicksLimit: salesValues.monthLabels.length,
+          maxTicksLimit: salesValues.monthCount,
           color: "#94A3B8",
         },
         grid: {
@@ -49,6 +50,7 @@ export const defaultDatasetOptions: Partial<
 
 export const initialSalesValue = {
   monthLabels: [] as string[],
+  monthCount: 0,
   min: null as number | null,
   max: null as number | null,
 };
