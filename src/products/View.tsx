@@ -1,5 +1,6 @@
 import { PanelGroup } from "../components/Panel/Group";
 import { Panel } from "../components/Panel/Panel";
+import { ProductShowcase } from "../components/ProductShowcase/ProductShowcase";
 import { getSearchParams } from "../util/getSearchParams";
 import { useProducts } from "./reducer";
 
@@ -7,7 +8,8 @@ export function ProductView() {
   const { product_id } = getSearchParams("product_id");
   const products = useProducts();
 
-  if (products.isLoading) {
+  if (!product_id || products.isLoading) {
+    // No product_id should only happen on mount with how I have the app written right now
     return <div>Loading</div>;
   }
 
@@ -15,18 +17,13 @@ export function ProductView() {
     return <div>{products.error}</div>;
   }
 
-  const product = products.data[product_id ?? ""];
-  if (!product) {
-    // I don't have routing so I'll just return a mock 404 page. Normally I would route the user here
-    // with React Router or Next.js/Remix.js
-    return <div>404</div>;
-  }
+  const product = products.data[product_id];
 
   return (
     <PanelGroup
       sidebar={
-        <Panel>
-          <p>Left</p>
+        <Panel className="h-full">
+          <ProductShowcase product={product} />
         </Panel>
       }
     >
