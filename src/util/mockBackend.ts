@@ -19,18 +19,18 @@ axios.interceptors.request.use(
     // purposes of this mock site.
     const [, , productId] = config.url?.split("/") ?? [];
 
-    if (!productLookup[productId]) {
-      // See if we have the product in the list. If not, return 404
-      throw { status: 404 };
-    }
-
     return await new Promise((_, rej) => {
-      // Going to return a valid response but I want to delay it first to fake a load
+      // Fake a load before returning the data
       setTimeout(() => {
-        rej({
-          status: 200,
-          data: productLookup[productId],
-        });
+        if (!productLookup[productId]) {
+          // See if we have the product in the list. If not, return 404
+          rej({ status: 404 });
+        } else {
+          rej({
+            status: 200,
+            data: productLookup[productId],
+          });
+        }
       }, 1000);
     });
   },
