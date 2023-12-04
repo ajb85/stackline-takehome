@@ -46,3 +46,9 @@ export const defaultDatasetOptions: Partial<
   tension: 0.3,
   pointRadius: 0,
 };
+
+export const initialSalesValue = {
+  monthLabels: [] as string[],
+  min: null as number | null,
+  max: null as number | null,
+};
