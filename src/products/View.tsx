@@ -1,3 +1,4 @@
+import { ProductSalesChart } from "../components/ProductSalesChart/ProductSalesChart";
 import { PanelGroup } from "../components/Panel/Group";
 import { Panel } from "../components/Panel/Panel";
 import { ProductShowcase } from "../components/ProductShowcase/ProductShowcase";
@@ -27,10 +28,14 @@ export function ProductView() {
         </Panel>
       }
     >
-      <Panel>
-        <p>Right Top</p>
+      <Panel className="h-full">
+        <ProductSalesChart
+          title="Retail Sales"
+          product={product}
+          plotKeys={["retailSales", "wholesaleSales"]}
+        />
       </Panel>
-      <Panel>
+      <Panel className="h-full overflow-auto">
         <p>Right Bottom</p>
       </Panel>
     </PanelGroup>
